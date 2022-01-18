@@ -1,4 +1,4 @@
-1\.&nbsp;&nbsp;&nbsp;&nbsp;큰 수의 법칙(largeNumber.py)
+1\.&nbsp;큰 수의 법칙(largeNumber.py)
 ======
 [문제]
 ------
