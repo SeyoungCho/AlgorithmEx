@@ -1,4 +1,4 @@
-1\.&nbsp;큰 수의 법칙(largeNumber.py)
+1\.&nbsp;상하좌우(lrud.py)
 ======
 [문제]
 ------
