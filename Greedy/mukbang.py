@@ -1,23 +1,24 @@
 import time
-# number of food
+import heapq
+#number of food
 N = int(input())
-food_times = list(map(int, input().split()))
+data = list(map(int, input().split()))
 #second when the network goes down
 K = int(input())
-finished = 0
 start_time = time.time()
 
-#count the no.of finished food after K seconds
-for i in range(len(food_times)):
-  if K <= food_times[i] * (N-1) + i:
-    finished += 1
-    food_times[i] = 0
+#food times array
+food_times = []
+#number of finished food
+finished = 0
+# push all the food info into the priority queue
+for i in range(len(data)):
+  heapq.heappush(food_times, (data[i], i))
 
-#Determine which food number to resume with
-if finished == N:
-  print(-1)
-else:
-  result = (K + finished) % N
-  print(result)
+result = 0
+print(result)    
+
+
+#pop from the queue until sum is less than K
 end_time = time.time()
 print("time :", end_time - start_time)
