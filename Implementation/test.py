@@ -1,13 +1,6 @@
-def rotate_right(arr):
-  n = len(arr)
-  new_arr = [[0] * n for _ in range(n)]
-  for i in range(n):
-    for j in range(n):
-      new_arr[i][j] = arr[n-j-1][i]
-  return new_arr
+dirChange = [0] * 10
+for i in range(3):
+  t, D = input().split()
+  dirChange[int(t)] = 1 if D == 'D' else -1
 
-arr = [[1,1,2],[3,4,5],[0,1,9]]
-
-key = rotate_right(arr)
-print(key)
-
+print(dirChange)
