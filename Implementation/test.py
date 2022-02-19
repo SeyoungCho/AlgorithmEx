@@ -1,6 +1,4 @@
-dirChange = [0] * 10
-for i in range(3):
-  t, D = input().split()
-  dirChange[int(t)] = 1 if D == 'D' else -1
-
-print(dirChange)
+arr = [[1,2],[3,4]]
+a = [1,2] in arr
+b = arr[1] == [1,2]
+print(a,b)
