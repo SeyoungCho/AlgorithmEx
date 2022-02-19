@@ -1,4 +1,5 @@
-arr = [[1,2],[3,4]]
-a = [1,2] in arr
-b = arr[1] == [1,2]
-print(a,b)
+from itertools import combinations
+
+arr = [(1,2), (3,4), (4,5), (1,4), (4,3)]
+removeList = list(combinations(range(len(arr)), 2))
+print(removeList)
