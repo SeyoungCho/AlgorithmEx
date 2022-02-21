@@ -24,7 +24,7 @@ def solution(n, weak, dist):
       weakset = set(weak)
       if weakset == weakset.intersection(coverset):
         return i
-
   return answer 
+
 end_time = time.time() 
 print("time :",end_time-start_time)
