@@ -1,2 +1,3 @@
-virus = [[] for _ in range(5)]
-print(virus)
+u = "((((()))))"
+print(len(u))
+print(u[10:])
