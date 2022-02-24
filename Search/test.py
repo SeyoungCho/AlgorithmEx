@@ -1,3 +1,1 @@
-u = "((((()))))"
-print(len(u))
-print(u[10:])
+print(-6 // 5)

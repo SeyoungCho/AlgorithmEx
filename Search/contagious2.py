@@ -13,7 +13,7 @@ virus = [[] for _ in range(K+1)]
 #save the location of each viruses
 for i in range(N):
   for j in range(N):
-    #if there's a virus
+    #if there's a virus	
     if graph[i][j] != 0:
       #store the location of the virus
       virus[graph[i][j]].append((i, j))
