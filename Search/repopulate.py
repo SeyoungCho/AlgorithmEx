@@ -1,9 +1,8 @@
-import time
+import sys
 from collections import deque
 N, L, R = map(int, input().split())
-graph = [list(map(int, input().split())) for _ in range(N)]
-start_time = time.time() 
-move_flag = False
+graph = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]
+
 dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
 
@@ -14,18 +13,9 @@ def isValidCoordinate(x, y):
 	else:
 		return False
 
-#repopulate the countries that share open borders
-def move_population(countries, country_num, sum):
-	population = sum // country_num
-	while countries:
-		x, y = countries.pop()
-		graph[x][y] = population
 
 #bfs through the countries and open borders for country[x][y]
-def bfs(x, y, visited):
-	#if the country has already been visited, return
-	if visited[x][y]:
-		return
+def bfs(x, y):
 	global move_flag
 	queue = deque([(x,y)])
 	countries = [(x, y)]
@@ -45,9 +35,10 @@ def bfs(x, y, visited):
 						countries.append((nx,ny))
 						sum += graph[nx][ny]
 						country_num += 1
-						if not move_flag:
-							move_flag = True
-	move_population(countries, country_num, sum)	
+	if len(countries) > 1:
+		move_flag = True
+	for i, j in countries:
+		graph[i][j] = sum // country_num
 							
 move_cnt = 0
 while True:
@@ -57,15 +48,11 @@ while True:
 	#bfs for all countries
 	for i in range(N):
 		for j in range(N):
-			count, sum = 0, 0
-			bfs(i, j, visited)
+			if not visited[i][j]:
+				bfs(i, j)
 	if not move_flag:
 		break
-	else:
-		move_cnt += 1
+	move_cnt += 1
 
 print(move_cnt)
-end_time = time.time() 
-print("time :",end_time - start_time)
-
 
