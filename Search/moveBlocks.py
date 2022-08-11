@@ -6,7 +6,7 @@ start_time = time.time()
 # up, down, left, right move
 move = [(-1, 0, -1, 0), (1, 0, 1, 0), (0, -1, 0, -1), (0, 1, 0, 1)]
 #rotation rot[0] : horizontal, rot[1]: vertical
-rot = [[(-1, 0, 0, 1), (0, 0, 1, -1), (-1, 1, 0, 0), (0, 1, 1, 0)],
+rot = [[(-1, 0, 0, -1), (0, 0, 1, -1), (-1, 1, 0, 0), (0, 1, 1, 0)],
        [(0, -1, -1, 0), (0, 0, -1, 1), (1, -1, 0, 0), (1, 0, 0, 1)]]
 #obstacle check points
 cp = [[(-1, 1), (1, 1), (-1, -1), (1, -1)], [(1, -1), (1, 1), (-1, -1),
@@ -83,7 +83,7 @@ def solution(board):
         for i in range(4):
             _x1, _y1, _x2, _y2 = tuple(
                 sum(elem) for elem in zip(rot[type][i], (x1, y1, x2, y2)))
-            new_type = checkType(_x1, _y1, _x2, _y2)
+            new_type = (type + 1) % 2
             if isValid(_x1, _y1, _x2, _y2, n):
                 if isEmpty(_x1, _y1, _x2, _y2, board) and not visited[new_type][_x1][_y1] and isRotatable(x1, y1, x2, y2, type, i, board):
                     visited[new_type][_x1][_y1] = True
