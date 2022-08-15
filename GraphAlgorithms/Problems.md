@@ -88,7 +88,7 @@ YES
 8
 ~~~
 
-2\.&nbsp;커리큘럼(curriculum.py)
+3\.&nbsp;커리큘럼(curriculum.py)
 ======
 [문제]
 ------
