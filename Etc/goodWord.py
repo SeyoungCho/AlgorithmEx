@@ -9,11 +9,10 @@ for word in words:
         if not stack:
             stack.append(word[i])
         else:
-            a = stack.pop()
-            if a != word[i]:
-                stack.append(a)
+            if stack[-1] != word[i]:
                 stack.append(word[i])
+            else:
+                stack.pop()
     if not stack:
         count += 1
 print(count)
-		
