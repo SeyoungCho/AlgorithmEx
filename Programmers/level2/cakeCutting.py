@@ -1,3 +1,4 @@
+from collections import Counter
 def solution(topping):
     answer = 0
     b = dict()
@@ -13,5 +14,19 @@ def solution(topping):
         if b[t] == 0:
             del b[t]
         if len(c) == len(b.keys()):
+            answer += 1
+    return answer
+
+def solution2(topping):
+    answer = 0
+    b = Counter(topping)
+    c = set([])
+    for i in topping[:len(topping)-1]:
+        c.add(i)
+        if i in b:
+            b[i] -= 1
+            if b[i] == 0:
+                del b[i]
+        if len(c) == len(b):
             answer += 1
     return answer
